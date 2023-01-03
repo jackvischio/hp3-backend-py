@@ -14,7 +14,7 @@ async def find_all_camps():
 async def find_all_camps(idStagione: int):
     if id:
         camps = connection.hockeypista.campionati.find({"stagione": int(idStagione)})
-        if camps and len(camps) > 0:
+        if camps and len(list(camps.clone())) > 0:
             return serializeList(camps)
         raise HTTPException(404, "Nessun campionato associato alla stagione")
     raise HTTPException(403, "Parametro id stagione mancante")
