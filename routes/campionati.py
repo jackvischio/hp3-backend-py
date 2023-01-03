@@ -10,7 +10,7 @@ route = APIRouter()
 async def find_all_camps():
     return serializeList(connection.hockeypista.campionati.find())
 
-@route.get('/campionati/stagione/{id}', response_model=list[Campionato])
+@route.get('/campionati/stagione/{idStagione}', response_model=list[Campionato])
 async def find_all_camps(idStagione: int):
     if id:
         camps = connection.hockeypista.campionati.find({"stagione": int(idStagione)})
