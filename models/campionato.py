@@ -5,3 +5,4 @@ class Campionato(BaseModel):
     nome: str
     label: str
     logo: str
+    stagione: int
