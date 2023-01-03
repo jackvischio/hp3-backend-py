@@ -11,8 +11,13 @@ async def find_all_camps():
     return serializeList(connection.hockeypista.campionati.find())
 
 @route.get('/campionati/stagione/{id}', response_model=list[Campionato])
-async def find_all_camps(id: int):
-    return serializeList(connection.hockeypista.campionati.find({"stagione": int(id)}))   
+async def find_all_camps(idStagione: int):
+    if id:
+        camps = connection.hockeypista.campionati.find({"stagione": int(idStagione)})
+        if camps:
+            return serializeList(camps)
+        raise HTTPException(404, "Nessun campionato associato alla stagione")
+    raise HTTPException(403, "Parametro id stagione mancante")
 
 @route.get('/campionato/{id}', response_model=Campionato)
 async def find_camp(id: int):
