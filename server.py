@@ -4,6 +4,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from routes.campionati import route as routeCamp
 from routes.arbitri import route as routeRef
 from routes.partite import route as routePart
+from routes.squadre import route as routeSquad
 
 app = FastAPI()
 
@@ -20,6 +21,7 @@ app.add_middleware(
 app.include_router(routeCamp)
 app.include_router(routeRef)
 app.include_router(routePart)
+app.include_router(routeSquad)
 
 @app.get("/")
 def index():
