@@ -1,3 +1,7 @@
 fastapi
 uvicorn
 pymongo
+sqlalchemy
+mysql-connector
+mysql-connector-python
+pydantic
