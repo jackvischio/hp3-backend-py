@@ -24,8 +24,8 @@ class Competizione(BaseModel):
     stagione: Union[int, None] = None
     categoria: Union[str, None] = None
     nome: Union[str, None] = None
-    tipo: Union[str, None] = None
-    ordine: Union[str, None] = None
+    tipo: Union[int, None] = None
+    ordine: Union[int, None] = None
 
     class Config:
         orm_mode = True
