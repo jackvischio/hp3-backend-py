@@ -1,10 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from routes.campionati import route as routeCamp
-from routes.arbitri import route as routeRef
-from routes.partite import route as routePart
-from routes.squadre import route as routeSquad
+from routes.competizioni import route as routeCompetizioni
 
 app = FastAPI()
 
@@ -18,10 +15,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-app.include_router(routeCamp)
-app.include_router(routeRef)
-app.include_router(routePart)
-app.include_router(routeSquad)
+app.include_router(routeCompetizioni)
 
 @app.get("/")
 def index():
