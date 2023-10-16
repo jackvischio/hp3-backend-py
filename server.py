@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from routes.competizioni import route as routeCompetizioni
+from routes.calendario import route as routeCalendario
 
 app = FastAPI()
 
@@ -16,6 +17,7 @@ app.add_middleware(
 )
 
 app.include_router(routeCompetizioni)
+app.include_router(routeCalendario)
 
 @app.get("/")
 def index():
